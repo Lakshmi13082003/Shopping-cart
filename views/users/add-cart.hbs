@@ -1,0 +1,62 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Cart</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/cart.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="Name">
+        <h2>My Cart</h2>
+      </div>
+      <div class="cart">
+        <a href="/users">Continue Shopping</a>
+        <a href="/users/my-order">My Order</a>
+      </div>
+      <div class="Logout">
+        <a href="/users/logout"><button>Logout</button></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="cart-container">
+      {{#if cart.length}}
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each cart}}
+          <tr>
+            <td><img src="{{this.image}}" alt="{{this.name}}" class="cart-image"></td>
+            <td>{{this.name}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.price}}</td>
+            <td>
+              <form action="/users/remove-from-cart" method="POST">
+                <input type="hidden" name="productName" value="{{this.name}}">
+                <button type="submit" class="delete-button">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      <form action="/users/place-order" method="POST">
+        <button type="submit" class="place-order-button">Place Order</button>
+      </form>
+      {{else}}
+      <p>Your cart is empty.</p>
+      {{/if}}
+    </div>
+  </main>
+</body>
+</html>

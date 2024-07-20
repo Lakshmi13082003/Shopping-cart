@@ -1,0 +1,41 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>Users</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/users.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="Name">
+        <h2>Shopping Cart</h2>
+      </div>
+      <div class="cart">
+        <a href="/users/add-cart">My Cart</a>
+        <a href="/users/my-order">My Order</a>
+      </div>
+      <div class="Logout">
+        <a href="/users/logout"><button>Logout</button></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="product-container">
+      {{#each products}}
+      <div class="product">
+        <img src="{{this.image}}" alt="{{this.name}}" class="product-image">
+        <h3>{{this.name}}</h3>
+        <p>Type: {{this.type}}</p>
+        <p>Price: {{this.price}}</p>
+        <p>{{this.description}}</p>
+        <form action="/users/add-cart" method="POST">
+          <input type="hidden" name="productName" value="{{this.name}}">
+          <button type="submit" class="add-to-cart">Add to Cart</button>
+        </form>
+      </div>
+      {{/each}}
+    </div>
+  </main>
+</body>
+</html>

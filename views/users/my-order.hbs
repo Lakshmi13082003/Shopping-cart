@@ -1,0 +1,52 @@
+<!DOCTYPE html>
+<html>
+<head>
+  <title>My Orders</title>
+  <meta name="viewport" content="width=device-width, initial-scale=1">
+  <link rel="stylesheet" href="/stylesheets/order.css">
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="Name">
+        <h1>My Orders</h1>
+      </div>
+      <div class="cart">
+        <a href="/users">Continue Shopping</a>
+        <a href="/users/add-cart">My Cart</a>
+      </div>
+      <div class="Logout">
+        <a href="/users/logout"><button>Logout</button></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="order-container">
+      {{#if orders.length}}
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">Image</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each orders}}
+          <tr>
+            <td><img src="{{this.image}}" alt="{{this.name}}" class="order-image"></td>
+            <td>{{this.name}}</td>
+            <td>{{this.type}}</td>
+            <td>{{this.price}}</td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+      {{else}}
+      <p>You have no orders.</p>
+      {{/if}}
+    </div>
+  </main>
+</body>
+</html>

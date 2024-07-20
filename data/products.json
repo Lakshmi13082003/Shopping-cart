@@ -1,0 +1,30 @@
+[
+  {
+    "name": "Iphone 11",
+    "type": "mobile",
+    "price": "500000",
+    "description": "This is iphone 11 and it is a very good phone",
+    "image": "/images/1721134669792-iphone.jpg"
+  },
+  {
+    "name": "Samsung S23",
+    "type": "mobile",
+    "price": "750000",
+    "description": "This is samsung s23.It has better camera clarity and visuals",
+    "image": "/images/1721134739856-s23.jpg"
+  },
+  {
+    "name": "realme nazro",
+    "type": "mobile",
+    "price": "20000",
+    "description": "This is realme nazro",
+    "image": "/images/1721134779400-realme nazro.jpg"
+  },
+  {
+    "name": "Iphone 15",
+    "type": "mobile",
+    "price": "500000",
+    "description": "good",
+    "image": "/images/1721134996513-iphone 15.jpg"
+  }
+]

@@ -1,0 +1,65 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <link rel="stylesheet" href="/stylesheets/admin-table.css">
+  <title>Admin Panel</title>
+</head>
+<body>
+  <header>
+    <div class="header">
+      <div class="Name">
+        <h2>Admin Panel</h2>
+      </div>
+      <div class="links">
+        <nav>
+          <a href="/admin/add-product">Add Products</a>
+          <a href="/admin/all-users">All Users</a>
+        </nav>
+      </div>
+      <div class="Logout">
+        <a href="/admin/logout"><button>Logout</button></a>
+      </div>
+    </div>
+  </header>
+  <main>
+    <div class="container">
+      <div class="head">
+        <h1>All Products</h1>
+      </div>
+      <table>
+        <thead>
+          <tr>
+            <th scope="col">No</th>
+            <th scope="col">Name</th>
+            <th scope="col">Type</th>
+            <th scope="col">Price</th>
+            <th scope="col">Description</th>
+            <th scope="col">Image</th>
+            <th scope="col">Actions</th>
+          </tr>
+        </thead>
+        <tbody>
+          {{#each products}}
+          <tr>
+            <th scope="row" data-label="No">{{@index}}</th>
+            <td data-label="Name">{{this.name}}</td>
+            <td data-label="Type">{{this.type}}</td>
+            <td data-label="Price">{{this.price}}</td>
+            <td data-label="Description">{{this.description}}</td>
+            <td data-label="Image"><img src="{{this.image}}" alt="{{this.name}}" style="max-width: 100px; height: auto;"></td>
+            <td data-label="Actions">
+              <form action="/admin/delete-product" method="post" style="display:inline;">
+                <input type="hidden" name="name" value="{{this.name}}">
+                <button type="submit">Delete</button>
+              </form>
+            </td>
+          </tr>
+          {{/each}}
+        </tbody>
+      </table>
+    </div>
+  </main>
+</body>
+</html>
